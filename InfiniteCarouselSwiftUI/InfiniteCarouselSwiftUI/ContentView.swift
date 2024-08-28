@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HorizontalPagingGrid: View {
-    let items = Array(0..<10)
+    let items = Array(0..<3)
     let itemsCount = Array(0..<3000)
     @State private var currentPage = 1500
 
@@ -52,6 +52,11 @@ struct HorizontalPagingGrid: View {
             
             // Page Control
             HStack {
+                HStack(spacing: 0) {
+                    Text("\((currentPage % items.count) + 1)")
+                    Text("/")
+                    Text("\(items.count)")
+                }
                 ForEach(0..<items.count, id: \.self) { index in
                     Circle()
                         .fill(index == currentPage % items.count ? Color.blue : Color.gray)
