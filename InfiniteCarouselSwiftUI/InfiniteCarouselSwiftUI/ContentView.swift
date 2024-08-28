@@ -61,6 +61,8 @@ struct HorizontalPagingGrid: View {
                     Circle()
                         .fill(index == currentPage % items.count ? Color.blue : Color.gray)
                         .frame(width: 10, height: 10)
+                        .scaleEffect(index == currentPage % items.count ? 1.2 : 1.0)
+                        .animation(.easeInOut, value: currentPage)
                 }
             }
             .padding()
